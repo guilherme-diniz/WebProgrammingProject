@@ -1,0 +1,132 @@
+#list
+  margin-top: 30px
+  width: 80% !important
+
+div.bettertabs
+  margin-top:  30px
+  width: 100%
+  margin-left: 20px
+
+  +border-radius(4px)
+
+  ul.tabs
+    margin: 0
+    padding: 0
+    position: relative
+
+    li
+      background-color: #FFF
+      display: inline
+      float: left
+      height: 24px
+      font-size: 18px
+      line-height: 24px
+      list-style: none outside none
+      margin-right: .5em
+      padding-right: .5em
+      padding-left: .5em
+      position: relative
+      top: 1px
+
+      +border-radius(4px)
+
+      &.active
+        height: 25px
+        background-color: #FFF
+        border-bottom: none
+
+      a
+        font-size: 80%
+        text-decoration: none
+        float: left
+        &.active
+          color: #000
+          font-weight: bold
+        &:link, &:visited
+          color: #000
+        &:hover
+          color: #000
+        &.ajax-loading
+          color: #666
+
+  div.content
+    padding: 1em
+    background-color: #FFF
+    clear: left
+    +border-radius(4px)
+
+    &.hidden
+      display: none
+
+  ul.result-post
+    li.color
+      background-color: #9cb2c9
+    li
+      height: 100px
+      display: block
+
+      img
+        height: 50px
+        margin: 10px
+        padding: 0
+      h5
+        position: relative
+        margin: 5px
+        font-weight: bold
+
+      div.counts
+        position: relative
+        margin-top: 0px
+        display: inline-flex
+
+        small
+          float: left
+
+      div.buttons
+        position: relative
+        text-align: center
+        display: inline-flex
+
+        button
+          float: left
+
+      p
+        text-align: justify
+
+
+  ul.result-user
+    li.color
+      background-color: #9cb2c9
+    li
+      height: 130px
+      display: block
+
+      img
+        height: 120px
+        width: 120px
+        margin: 5px
+        padding: 0
+      h3
+        position: relative
+        font-weight: bold
+        margin: 5px
+
+      div.counts
+        position: relative
+        margin-top: 20px
+        display: inline-flex
+
+        h4
+          float: left
+          margin-left: 30px
+          margin-right: 0px
+
+      div.buttons
+        position: relative
+        text-align: center
+        top: 40px
+        display: inline-flex
+
+        button
+          margin-right: 10px
+

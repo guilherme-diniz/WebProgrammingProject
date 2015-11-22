@@ -1,0 +1,59 @@
+<section id="profile">
+  <div class="profile col-sm-12">
+    <header class="header text-center">
+        <%= image_tag @user.avatar.url(:minithumb), class: "img-responsive" unless @user.avatar.nil?%>
+            <h3><%= @user.name %></h3>
+            <div class="counts bottom20">
+              <span>
+                <h4><%= @user.posts.count %> posts</h4>
+              </span>
+              <span>
+                <h4><%= @user.followers_count%> seguidores</h4>
+              </span>
+              <span>
+                <h4><%= @user.followees_count%> seguindo </h4>
+              </span>
+            </div>
+    </header>
+    <% if user_signed_in? %>
+      <% if @user != current_user%>
+        <div class="col-sm-12 text-right">
+          <% if not current_user.follower_of?(@user)%>
+            <%= link_to user_follow_path(@user) , class: 'link' do %>
+              <button class="btn btn-sm btn-vita btn-vita-primary" type="button">
+                    Seguir
+               </button>
+            <% end %>
+          <% else %>
+            <%= link_to user_unfollow_path(@user) , class: 'link' do %>
+              <button class="btn btn-sm btn-vita btn-vita-success" type="button">
+                    Seguindo
+               </button>
+            <% end %>
+          <% end %>
+          <% if not @user.blocked_by(current_user) %>
+            <%= link_to user_block_path(@user) , class: 'link' do %>
+              <button class="btn btn-sm btn-vita btn-vita-danger" type="button">
+                    Bloquear
+               </button>
+            <% end %>
+          <% else %>
+            <%= link_to user_unblock_path(@user) , class: 'link' do %>
+              <button class="btn btn-sm btn-vita btn-vita-default" type="button">
+                    Bloqueado
+               </button>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="col-sm-12">
+      <h3> Últimas Postagens</h3>
+    </div>
+    <div class="posts col-sm-12">
+      <ul>
+        <%= render partial: 'post', collection: @user.posts.order_by(:created_at.desc)%>
+      </ul>
+    </div>
+  </div>
+</section>

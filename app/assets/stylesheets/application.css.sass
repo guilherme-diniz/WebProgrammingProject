@@ -1,0 +1,270 @@
+$font-size-base: 14px
+
+// Rails Assets
+
+@import "font-awesome"
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+// RubyGems Assets
+
+@import "bootstrap"
+@import "owl.carousel"
+@import "owl.theme"
+@import "compass"
+@import "select2"
+@import "select2-bootstrap"
+@import "perfect-scrollbar"
+
+// Config
+
+@import "fonts"
+@import "icons"
+@import "mixins"
+
+// Layouts
+
+@import "layouts/initialize"
+
+// Pages
+
+@import "main/initialize"
+@import "user/initialize"
+
+// Utils
+
+// Vendor
+
+@import "vendor/elastic_grid"
+@import "vendor/shareable_social"
+@import "vendor/form_responsive"
+@import "vendor/justifiedGallery.min"
+@import "vendor/swipebox.min"
+@import "vendor/wookmark"
+@import "rrssb"
+
+// Defauls
+
+*
+  -webkit-font-smoothing: antialiased
+  text-shadow: rgba(0,0,0,.01) 0 0 1px
+
+*, *:before, *:after
+  +box-sizing(border-box)
+
+body, html
+  padding: 0
+  margin: 0
+
+body
+  height: 100%
+  width: 100%
+  margin: 0 0
+  background: #EDE9E9
+
+h1, h2, h3, h4, h5, h6, p, div
+  font-family: 'Lato', sans-serif
+
+ol, ul
+  -webkit-margin-before: 0px
+  -webkit-margin-after: 0px
+  -webkit-margin-start: 0px
+  -webkit-margin-end: 0px
+  -webkit-padding-start: 25px
+
+.top5
+  margin-top: 5px !important
+
+.top10
+  margin-top: 10px !important
+
+.top20
+  margin-top: 20px !important
+
+.top30
+  margin-top: 30px !important
+
+.top60
+  margin-top: 60px !important
+
+.bottom5
+  margin-bottom: 5px !important
+
+.bottom10
+  margin-bottom: 10px !important
+
+.bottom20
+  margin-bottom: 20px !important
+
+.bottom30
+  margin-bottom: 30px !important
+
+.bottom60
+  margin-bottom: 60px !important
+
+button, input, a
+  &.btn-vita
+    position: relative
+    display: inline-block
+    margin: 0 auto
+    margin-right: 10px
+    top: 0
+    font-weight: bold
+    outline: none
+
+    +border-radius(4px)
+    +transition(all .1s)
+
+    .width30
+      width: 30%
+
+    span
+      position: relative
+      top: 1px
+      padding: 0
+      font-size: 12px
+      margin-right: 15px
+
+    &:hover
+      top: 1px
+
+    &:active
+      top: 3px
+
+    &:focus
+      outline: none !important
+
+  &.btn-vita-default
+    background: #F9F9F9
+    color: #555
+
+    +box-shadow(0px 3px #95A5A6)
+
+    &:hover
+      color: #333
+      background: #FAFAFA
+
+      +box-shadow(0px 2px #95A5A6)
+
+    &:active
+      +box-shadow(0px 0px #95A5A6)
+
+    &:focus
+      color: #333
+
+  &.btn-vita-primary
+    background: #486684
+    color: #FFF
+
+    +box-shadow(0px 3px #2C426E)
+
+    &:hover
+      color: #FFF
+      background: #4B70BB
+
+      +box-shadow(0px 2px #2C426E)
+
+    &:active
+      +box-shadow(0px 0px #2C426E)
+
+    &:focus
+      color: #FFF
+
+  &.btn-vita-danger
+    background: #E06153
+    color: #FFF
+
+    +box-shadow(0px 3px #602A24)
+
+    &:hover
+      color: #FFF
+      background: #ED6758
+
+      +box-shadow(0px 2px #602A24)
+
+    &:active
+      +box-shadow(0px 0px #602A24)
+
+    &:focus
+      color: #FFF
+
+  &.btn-vita-success
+    background: #1ABC9C
+    color: #FFF
+
+    +box-shadow(0px 3px #16A085)
+
+    &:hover
+      color: #FFF
+      background: #19CAA7
+
+      +box-shadow(0px 2px #16A085)
+
+    &:active
+      +box-shadow(0px 0px #16A085)
+
+    &:focus
+      color: #FFF
+
+  &.btn-vita-white
+    background: #FFF
+    // border: solid 1px #EEE
+    color: #555
+
+    +box-shadow(0px 3px #DDD)
+
+    &:hover
+      color: #555
+      background: #FAFAFA
+
+      +box-shadow(0px 2px #DDD)
+
+    &:active
+      +box-shadow(0px 0px #DDD)
+
+    &:focus
+      color: #555
+
+  &.btn-signup-signin
+    margin-bottom: 15px
+    padding-left: 35px
+
+    &:before
+      position: absolute
+      left: 15px
+      font-family: "WebHostingHub-Glyphs"
+      font-weight: normal
+      background: none
+      width: auto
+      height: auto
+
+  &.btn-servicing
+    padding-left: 35px
+
+    &:before
+      position: absolute
+      left: 15px
+      font-family: "WebHostingHub-Glyphs"
+      font-weight: normal
+      background: none
+      width: auto
+      height: auto
+  // font-family: 'Playfair Display', serif
+
+.flowGrid
+  &:before,
+  &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+.flowGridItem
+  margin-bottom: 10px
+.flowGridItem img
+  width: 100%
+.flowGridColumn
+  float: left
+  padding-left: 10px
+.flowGridColumn
+  &:last-of-type
+    padding-right: 10px

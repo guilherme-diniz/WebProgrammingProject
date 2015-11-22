@@ -1,0 +1,21 @@
+<section id="maincontent">
+    <div id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>Bem Vindo</h1>
+            <h3>Entre agora ou realize uma busca</h3>
+            <br>
+            <div class="col-sm-12 text-center">
+              <%= form_tag '/main/search', method: :get, class: 'form-horizontal' do%>
+                  <div class="col-sm-10">
+                      <%= text_field_tag :search, '', class: "form-control", placeholder: "Digite algo para realizar uma busca" %>
+                  </div>
+                  <div class="col-sm-1">
+                      <%= button_tag(type: :submit, class: 'btn btn-info') do %>
+                          <i class="glyphicon glyphicon-search"></i>
+                      <% end %>
+                  </div>
+              <% end %>
+            </div>
+        </div>
+    </div>
+</section>

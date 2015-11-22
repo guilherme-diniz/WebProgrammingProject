@@ -1,0 +1,164 @@
+nav#vita-left-navbar
+  position: fixed
+  overflow-y: auto
+  left: 0
+  padding: 40px
+  height: 100%
+  width: 300px
+  z-index: 99
+  background: #2c3e50
+
+  #vita-left-navbar-content
+    position: relative
+    display: block
+    margin: 0 auto
+    height: 100%
+
+    #vita-left-navbar-buttons,
+    #vita-left-navbar-menu
+      position: relative
+
+    #vita-left-navbar-buttons
+      // margin-top: 60px
+
+    #welcome-message
+      margin: -40px
+      margin-top: 0px
+      padding: 10px
+      text-align: center
+      background: #3f5973
+      color: #EEE
+
+      a
+        color: #70B4EF
+
+      img
+        float: none
+        margin: 0 auto
+        width: 50%
+        height: 50%
+        -webkit-border-radius: 50% !important
+        -moz-border-radius: 50% !important
+        border-radius: 50% !important
+
+      .profile-name
+        color: #dee6ed
+        font-size: 16px
+        font-weight: 600
+        margin-bottom: 7px
+
+      .counts
+        h4
+          color: #2c3e50
+          display: inline-block
+          padding: 6px
+          margin: 2px 5px
+          font-size: 18px
+          font-weight: bold
+          text-align: center
+          background-color: #dee6ed
+          border-top-right-radius: 3px
+          border-bottom-right-radius: 3px
+          border-bottom-left-radius: 3px
+          border-top-left-radius: 3px
+
+          small
+            color: #2c3e50
+            display: block
+            clear: both
+            font-size: 12px
+            opacity: 1
+
+    #vita-left-navbar-menu
+      margin-top: 45px
+      padding-top: 15px
+
+      #vita-left-navbar-menu-title
+        margin-bottom: 20px
+        font-size: 12px
+        text-transform: uppercase
+        font-weight: bold
+        color: #BDB5B5
+
+      ul
+        padding: 0
+
+        li
+          padding: 5px 0
+          list-style: none
+
+          a
+            position: relative
+            text-decoration: none
+            font-size: 14px
+            font-weight: 400
+            color: #BDB5B5
+
+            +transition(.2s ease-in)
+
+            span
+              position: relative
+              top: 3px
+              margin-right: 20px
+              font-size: 16px
+              font-weight: normal
+
+              +transition(.2s ease-in)
+
+            &:hover
+              color: #FAFAFA
+
+            &.active
+              color: #FAFAFA
+
+              span
+                &.explore,
+                &.events,
+                &.food,
+                &.photos,
+                &.blog
+                  color: #14BCC8
+
+    #vita-left-navbar-footer
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      color: #BDB5B5
+
+      #social-share
+        margin: 0 -40px
+        padding-top: 12px
+        padding-bottom: 12px
+        text-align: center
+        border-top: solid 1px #2E2E2E
+        border-bottom: solid 1px #2E2E2E
+        background: #272727
+
+        a
+          text-decoration: none
+          color: #FFF
+
+          span
+            &.social-share-facebook,
+            &.social-share-twitter,
+            &.social-share-instagram,
+            &.social-share-gplus
+              margin: 0 15px
+              font-size: 16px
+              cursor: pointer
+
+              +transition(.3s ease-in)
+
+              &:hover
+                color: #FFF
+
+            &.social-share-facebook
+              margin-left: 0
+
+            &.social-share-twitter
+
+            &.social-share-instagram
+
+            &.social-share-flickr
+              margin-right: 0

@@ -1,0 +1,36 @@
+<section id="maincontent">
+  <div id="list">
+    <div class="col-sm-12">
+      <%= form_tag main_search_path, method: :get, class: 'form-horizontal' do%>
+          <div class="col-sm-11">
+              <%= text_field_tag :search, @search, class: "form-control", required: true, placeholder: "Digite algo para realizar uma busca" %>
+          </div>
+          <div class="col-sm-1">
+              <%= button_tag(type: :submit, class: 'btn btn-info') do %>
+                  <i class="glyphicon glyphicon-search"></i>
+              <% end %>
+          </div>
+      <% end %>
+    </div>
+    <% if (not @search.nil?) %>
+      <div class="col-sm-12">
+        <%= bettertabs :profile_tabs do |tab| %>
+          <%= tab.ajax :posts, "Postagens (#{@posts.count})" do %>
+            <ul class="result-post">
+                <%= render partial: "post", collection: @posts %>
+                <%= "Desculpa! Não encontramos nenhum resultado para sua busca" if @posts.count == 0 %>
+            </ul>
+          <% end %>
+
+          <%= tab.ajax :users, "Usuários (#{@users.count})" do %>
+            <ul class="result-user">
+              <%= render partial: 'user', collection: @users%>
+              <%= "Desculpa! Não encontramos nenhum resultado para sua busca" if @users.count == 0 %>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>

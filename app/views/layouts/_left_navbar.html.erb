@@ -1,0 +1,81 @@
+<nav id="vita-left-navbar">
+  <div id="vita-left-navbar-content">
+    <% if  user_signed_in? %>
+        <div id="welcome-message">
+          <%= image_tag current_user.avatar.url(:minithumb), class: "img-responsive" unless current_user.avatar.nil?%>
+          <span class="profile-name"><%= current_user.name %></span>
+          <div class="counts bottom20">
+            <span>
+              <h4><%= current_user.posts.count %> <small>posts</small></h4>
+            </span>
+            <span>
+              <h4><%= current_user.followers_count%> <small>seguidores</small></h4>
+            </span>
+            <span>
+              <h4><%= current_user.followees_count%> <small>seguindo</small></h4>
+            </span>
+          </div>
+          <div class="buttons">
+            <%= link_to user_profile_path(current_user), method: :get, class: "link" do %>
+              <button class="btn btn-sm btn-vita btn-vita-primary width30" type="button">
+                Perfil
+              </button>
+          <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "link" do %>
+              <button class="btn btn-sm btn-vita btn-vita-danger width30" type="button">
+                Sair
+              </button>
+          <% end %>
+        </div>
+
+        </div>
+    <% else %>
+      <div id="vita-left-navbar-buttons">
+        <div>
+            <%= link_to new_user_session_path, id: "sign_in" do %>
+              <button class="btn btn-block btn-sm btn-vita btn-vita-primary" type="button">
+                Entrar
+              </button>
+          <% end %>
+        </div>
+
+        <%= link_to new_user_registration_path do %>
+          <button class='btn btn-block btn-sm btn-vita btn-vita-white'>
+            Registrar
+          </button>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div id="vita-left-navbar-menu">
+      <div id="vita-left-navbar-menu-title">
+        Navegar
+      </div>
+
+      <ul>
+        <li>
+          <%= link_to main_search_path, class: "#{ (params["action"] == 'search') ? 'active' : nil }" do %>
+            <span class="glyphicon glyphicon-search"></span>Procurar
+          <% end %>
+        </li>
+        <% if  user_signed_in? %>
+          <li>
+            <%= link_to main_explore_path, class: "#{ (params["action"] == 'explore') ? 'active' : nil }" do %>
+              <span class="glyphicon glyphicon-dashboard"></span>Explorar
+            <% end %>
+          </li>
+          <li>
+            <%= link_to main_notifications_path, class: "#{ (params["action"] == 'notifications') ? 'active' : nil }" do %>
+              <span class="glyphicon glyphicon-envelope"></span>Notificações
+            <% end %>
+          </li>
+          <li>
+            <%= link_to main_settings_path, class: "#{ (params["action"] == 'settings') ? 'active' : nil }" do %>
+              <span class="glyphicon glyphicon-cog"></span>Configurações
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

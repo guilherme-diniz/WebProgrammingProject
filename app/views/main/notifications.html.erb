@@ -1,0 +1,10 @@
+<section id="notifications">
+  <h3>Notificações</h3>
+  <div class="col-sm-12">
+    <div class="col-sm-12 posts">
+          <ul class="posts">
+            <%= render partial: 'notification', collection: current_user.ever_followed, as: :user%>
+          </ul>
+      </div>
+  </div>
+</section>

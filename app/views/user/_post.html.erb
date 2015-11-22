@@ -1,0 +1,21 @@
+<li>
+  <div class="col-sm-12">
+    <div class="col-sm-2">
+      <span> <%= post.created_at.strftime('%d/%m/%Y %R') %> </span>
+    </div>
+    <div class="col-sm-8">
+      <p>
+          <%= post.text %>
+      </p>
+    </div>
+    <div class="col-sm-2 buttons">
+      <% if user_signed_in? and @user == current_user%>
+        <%= link_to posts_delete_path(post) , method: :delete, class: 'link' do %>
+            <button class="btn btn-sm btn-vita btn-vita-danger" type="button">
+                  <small>Excluir</small>
+             </button>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</li>
