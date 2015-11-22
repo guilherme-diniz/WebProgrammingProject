@@ -9,21 +9,21 @@
               <h4><%= current_user.posts.count %> <small>posts</small></h4>
             </span>
             <span>
-              <h4><%= current_user.followers_count%> <small>seguidores</small></h4>
+              <h4><%= current_user.followers_count%> <small>followers</small></h4>
             </span>
             <span>
-              <h4><%= current_user.followees_count%> <small>seguindo</small></h4>
+              <h4><%= current_user.followees_count%> <small>following</small></h4>
             </span>
           </div>
           <div class="buttons">
             <%= link_to user_profile_path(current_user), method: :get, class: "link" do %>
               <button class="btn btn-sm btn-vita btn-vita-primary width30" type="button">
-                Perfil
+                Profile
               </button>
           <% end %>
             <%= link_to destroy_user_session_path, method: :delete, class: "link" do %>
               <button class="btn btn-sm btn-vita btn-vita-danger width30" type="button">
-                Sair
+                Sign out
               </button>
           <% end %>
         </div>
@@ -34,14 +34,14 @@
         <div>
             <%= link_to new_user_session_path, id: "sign_in" do %>
               <button class="btn btn-block btn-sm btn-vita btn-vita-primary" type="button">
-                Entrar
+                Sign in
               </button>
           <% end %>
         </div>
 
         <%= link_to new_user_registration_path do %>
           <button class='btn btn-block btn-sm btn-vita btn-vita-white'>
-            Registrar
+            Sign up
           </button>
         <% end %>
       </div>
@@ -49,29 +49,29 @@
 
     <div id="vita-left-navbar-menu">
       <div id="vita-left-navbar-menu-title">
-        Navegar
+        Browse
       </div>
 
       <ul>
         <li>
           <%= link_to main_search_path, class: "#{ (params["action"] == 'search') ? 'active' : nil }" do %>
-            <span class="glyphicon glyphicon-search"></span>Procurar
+            <span class="glyphicon glyphicon-search"></span>Search
           <% end %>
         </li>
         <% if  user_signed_in? %>
           <li>
             <%= link_to main_explore_path, class: "#{ (params["action"] == 'explore') ? 'active' : nil }" do %>
-              <span class="glyphicon glyphicon-dashboard"></span>Explorar
+              <span class="glyphicon glyphicon-dashboard"></span>Explore
             <% end %>
           </li>
           <li>
             <%= link_to main_notifications_path, class: "#{ (params["action"] == 'notifications') ? 'active' : nil }" do %>
-              <span class="glyphicon glyphicon-envelope"></span>Notificações
+              <span class="glyphicon glyphicon-envelope"></span>Notifications
             <% end %>
           </li>
           <li>
             <%= link_to main_settings_path, class: "#{ (params["action"] == 'settings') ? 'active' : nil }" do %>
-              <span class="glyphicon glyphicon-cog"></span>Configurações
+              <span class="glyphicon glyphicon-cog"></span>Settings
             <% end %>
           </li>
         <% end %>

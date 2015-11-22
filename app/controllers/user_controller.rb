@@ -13,10 +13,10 @@ class UserController < ApplicationController
     @user = User.find(params[:user_id])
     respond_to do |format|
       if Blocked.where(blocked_by: @user, blocked: current_user).count > 0
-          format.html {redirect_to :back, alert: "Você não pode serguir este usuário."}
+          format.html {redirect_to :back, alert: "You can't follow this user."}
       else
         current_user.follow(@user)
-          format.html {redirect_to :back, notice: "Você está seguindo este usuário."}
+          format.html {redirect_to :back, notice: "You're following this user."}
       end
     end
   end
@@ -25,7 +25,7 @@ class UserController < ApplicationController
     @user = User.find(params[:user_id])
     current_user.unfollow(@user)
     respond_to do |format|
-      format.html {redirect_to :back, notice: "Você parou de seguir este usuário."}
+      format.html {redirect_to :back, notice: "You unfollow this user"}
     end
   end
 
@@ -37,7 +37,7 @@ class UserController < ApplicationController
     block.save!
 
     respond_to do |format|
-      format.html {redirect_to :back, notice: "Você bloqueou este usuário."}
+      format.html {redirect_to :back, notice: "This user has been blocked"}
     end
   end
 
@@ -46,7 +46,7 @@ class UserController < ApplicationController
     block = Blocked.where(blocked_by: current_user, blocked: @user)
     block.delete
     respond_to do |format|
-      format.html {redirect_to :back, notice: "Você desbloqueou este usuário."}
+      format.html {redirect_to :back, notice: "This user has been unblocked"}
     end
   end
 
@@ -58,9 +58,9 @@ class UserController < ApplicationController
 
     respond_to do |format|
       if @user.save!
-        format.html { redirect_to main_settings_path, notice: 'Configurações salvas com sucesso!' }
+        format.html { redirect_to main_settings_path, notice: 'Settings saved successfully' }
       else
-        format.html { render main_settings_path , alert: "Erro ao salvar as onfigurações"}
+        format.html { render main_settings_path , alert: "Error saving setting"}
       end
     end
   end

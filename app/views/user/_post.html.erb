@@ -12,7 +12,7 @@
       <% if user_signed_in? and @user == current_user%>
         <%= link_to posts_delete_path(post) , method: :delete, class: 'link' do %>
             <button class="btn btn-sm btn-vita btn-vita-danger" type="button">
-                  <small>Excluir</small>
+                  <small>Delete</small>
              </button>
           <% end %>
       <% end %>

@@ -1,5 +1,5 @@
 <section id="settings">
-  <h3>Configurações</h3>
+  <h3>Settings</h3>
   <%= form_for @user,  html: {class: "form-horizontal", multipart: true} do |f| %>
     <div class="col-sm-12">
         <div class="form-group">
@@ -11,7 +11,7 @@
 
         <div class="form-group">
           <div class="col-sm-12">
-              <%= label_tag :name, "Nome" %>
+              <%= label_tag :name, "Name" %>
               <%= f.text_field :name, class: "form-control"%>
             </div>
         </div>
@@ -27,11 +27,11 @@
           <div class="col-sm-12">
             <%= link_to  edit_user_registration_path , class: 'link' do %>
               <button class="btn btn-sm btn-vita btn-vita-success" type="button">
-                    Trocar Senha
+                    Change Password
                </button>
             <% end %>
             <%= button_tag(type: :submit, class: 'btn btn-sm btn-vita btn-vita-primary') do %>
-                Salvar
+                Save
             <% end %>
         </div>
     </div>

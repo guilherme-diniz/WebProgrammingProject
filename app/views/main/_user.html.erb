@@ -1,51 +1,53 @@
-<li class=<%= @index %2 == 1 ? 'color' : ''%>>
-  <div class="col-sm-12">
-    <div class="col-sm-2 text-center">
-      <%= image_tag user.avatar.url(:thumb) %>
-    </div>
-    <div class="col-sm-6 text-center">
-      <h3> <%= user.name %></h3>
-      <div class="counts">
-        <h4> <%= user.posts.count %> posts</h4>
-        <h4><%= user.followers_count %> seguidores</h4>
-        <h4> <%= user.followees_count %> seguindo</h4>
+<% if user.present? %>
+  <li class=<%= @index %2 == 1 ? 'color' : ''%>>
+    <div class="col-sm-12">
+      <div class="col-sm-2 text-center">
+        <%= image_tag user.avatar.url(:thumb) %>
+      </div>
+      <div class="col-sm-6 text-center">
+        <h3> <%= user.name %></h3>
+        <div class="counts">
+          <h4> <%= user.posts.count %> posts</h4>
+          <h4><%= user.followers_count %> followers</h4>
+          <h4> <%= user.followees_count %> following</h4>
+        </div>
+      </div>
+      <div class="col-sm-4 buttons">
+        <%= link_to user_profile_path(user), class: "link" do %>
+          <button type="button" class="btn btn-sm btn-vita btn-vita-default"> Profile </button>
+        <% end %>
+        <% if user_signed_in? %>
+          <% if user != current_user%>
+              <% if not current_user.follower_of?(user)%>
+                <%= link_to user_follow_path(user) , class: 'link' do %>
+                  <button class="btn btn-sm btn-vita btn-vita-primary" type="button">
+                        Follow
+                   </button>
+                <% end %>
+              <% else %>
+                <%= link_to user_unfollow_path(user) , class: 'link' do %>
+                  <button class="btn btn-sm btn-vita btn-vita-success" type="button">
+                        Following
+                   </button>
+                <% end %>
+              <% end %>
+              <% if not user.blocked_by(current_user) %>
+                <%= link_to user_block_path(user) , class: 'link' do %>
+                  <button class="btn btn-sm btn-vita btn-vita-danger" type="button">
+                        Block
+                   </button>
+                <% end %>
+              <% else %>
+                <%= link_to user_unblock_path(user) , class: 'link' do %>
+                  <button class="btn btn-sm btn-vita btn-vita-default" type="button">
+                        Blocked
+                   </button>
+                <% end %>
+              <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
-    <div class="col-sm-4 buttons">
-      <%= link_to user_profile_path(user), class: "link" do %>
-        <button type="button" class="btn btn-sm btn-vita btn-vita-default"> Perfil </button>
-      <% end %>
-      <% if user_signed_in? %>
-        <% if user != current_user%>
-            <% if not current_user.follower_of?(user)%>
-              <%= link_to user_follow_path(user) , class: 'link' do %>
-                <button class="btn btn-sm btn-vita btn-vita-primary" type="button">
-                      Seguir
-                 </button>
-              <% end %>
-            <% else %>
-              <%= link_to user_unfollow_path(user) , class: 'link' do %>
-                <button class="btn btn-sm btn-vita btn-vita-success" type="button">
-                      Seguindo
-                 </button>
-              <% end %>
-            <% end %>
-            <% if not user.blocked_by(current_user) %>
-              <%= link_to user_block_path(user) , class: 'link' do %>
-                <button class="btn btn-sm btn-vita btn-vita-danger" type="button">
-                      Bloquear
-                 </button>
-              <% end %>
-            <% else %>
-              <%= link_to user_unblock_path(user) , class: 'link' do %>
-                <button class="btn btn-sm btn-vita btn-vita-default" type="button">
-                      Bloqueado
-                 </button>
-              <% end %>
-            <% end %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</li>
-<% @index += 1%>
+  </li>
+  <% @index += 1%>
+<% end %>

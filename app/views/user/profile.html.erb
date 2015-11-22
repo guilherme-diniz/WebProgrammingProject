@@ -8,10 +8,10 @@
                 <h4><%= @user.posts.count %> posts</h4>
               </span>
               <span>
-                <h4><%= @user.followers_count%> seguidores</h4>
+                <h4><%= @user.followers_count%> followers</h4>
               </span>
               <span>
-                <h4><%= @user.followees_count%> seguindo </h4>
+                <h4><%= @user.followees_count%> following </h4>
               </span>
             </div>
     </header>
@@ -21,26 +21,26 @@
           <% if not current_user.follower_of?(@user)%>
             <%= link_to user_follow_path(@user) , class: 'link' do %>
               <button class="btn btn-sm btn-vita btn-vita-primary" type="button">
-                    Seguir
+                    Follow
                </button>
             <% end %>
           <% else %>
             <%= link_to user_unfollow_path(@user) , class: 'link' do %>
               <button class="btn btn-sm btn-vita btn-vita-success" type="button">
-                    Seguindo
+                    Following
                </button>
             <% end %>
           <% end %>
           <% if not @user.blocked_by(current_user) %>
             <%= link_to user_block_path(@user) , class: 'link' do %>
               <button class="btn btn-sm btn-vita btn-vita-danger" type="button">
-                    Bloquear
+                    Block
                </button>
             <% end %>
           <% else %>
             <%= link_to user_unblock_path(@user) , class: 'link' do %>
               <button class="btn btn-sm btn-vita btn-vita-default" type="button">
-                    Bloqueado
+                    Bloked
                </button>
             <% end %>
           <% end %>
@@ -48,7 +48,7 @@
       <% end %>
     <% end %>
     <div class="col-sm-12">
-      <h3> Últimas Postagens</h3>
+      <h3> Last Posts</h3>
     </div>
     <div class="posts col-sm-12">
       <ul>
